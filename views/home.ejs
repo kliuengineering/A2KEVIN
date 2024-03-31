@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <style>
+        img
+        {
+            width: 100px;
+            height: 100px;
+        }
+
+        span
+        {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        p
+        {
+            margin-top: 0px;
+        }
+
+        #music-list
+        {
+            margin: 20px;
+            padding: 20px;
+            width: 80%;
+            
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            border: 1px solid black;
+        }
+
+        #music-description
+        {
+            margin-left: 40px;
+
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #music-buttons
+        {
+            display: block-flex;
+            flex-direction: row;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Songs</h1>
+
+    <ul>
+        <li>
+            <a href="/playlist">PlayList</a>
+        </li>
+    </ul>
+
+    <!-- this is the music list -->
+    <% let index = 0; %>
+    <% for (let itr of musicList) { %>
+
+        <div id="music-list">
+            <img src="<%= itr.artistImage %>"/>
+
+            <div id="music-description">
+                <p>Song: <%= itr.title %></p>
+                <p>Artist: <%= itr.artist %></p>
+
+                <div id="music-buttons">
+                    <a href = "/add/<%= index %>">Add To Playlist</a>
+                    <span> | </span>
+                    <a href = "/find/<%= itr.artist%>">More Songs By This Artist</a>
+                </div>
+            </div>
+        </div>
+
+        <% index = index + 1; %>
+    <% } %>
+    
+</body>
+
+</html>

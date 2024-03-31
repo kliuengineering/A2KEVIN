@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playlist</title>
+
+    <style>
+        img
+        {
+            width: 100px;
+            height: 100px;
+        }
+
+        #main-frame
+        {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+        }
+
+        #sub-frame
+        {
+            margin-left: 20px;
+
+            display: fles;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Playlist</h1>
+
+    <% if (playListFlag === false) { %>
+
+        <p>Playlist is empty...</p>
+        
+    <% } else { %>
+        
+        <% for (let itr of myPlayList) { %>
+            
+            <div id="main-frame">
+                <img src="<%= itr.artistImage %>"/>
+
+                <div id="sub-frame">
+                    <p>Artist: <%= itr.artist %></p>
+                    <p>Song: <%= itr.title %></p>
+                </div>
+            </div>
+
+        <% } %>
+
+    <% } %>
+
+    <a href="/">Home</a>
+</body>
+</html>
